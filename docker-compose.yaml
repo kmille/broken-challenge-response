@@ -1,0 +1,6 @@
+version: '3'
+services:
+  chro:
+    build: .
+    ports:
+        - 2023:2023

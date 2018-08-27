@@ -7,14 +7,15 @@ from binascii import hexlify
 
 # socat tcp-l:2023,reuseaddr,fork exec:'python app.py'
 
-flag = "MRMCD18{123123123}"
-shared_secret = "838385723752375832975983275832659326598326535932653261324398247" 
+shared_secret = "this is really super secret haha."
+with open("/flag.txt", "r") as f:
+    flag= f.read().strip()
 
 
 def create_response(challenge):
     challenge = challenge.strip()
-    response =  md5(shared_secret.encode() + challenge.encode()).digest()
-    return hexlify(response).decode()
+    response =  md5(shared_secret.encode() + challenge.encode()).hexdigest()
+    return response
 
 
 def main():
